@@ -1,4 +1,4 @@
-AJAX is about updating parts of a web page, without reloading the whole page.
+![image](https://github.com/Alexanderh1988/EasyCopyPaste/assets/28324045/a52f1c3e-1bf7-42ee-9dc9-b6696f2690fa)AJAX is about updating parts of a web page, without reloading the whole page.
 
 What is AJAX?
 AJAX = Asynchronous JavaScript and XML.
@@ -13,7 +13,7 @@ Examples of applications using AJAX: Google Maps, Gmail, Youtube, and Facebook t
 
 How AJAX Works
 AJAX
-![Image]([../blob/master/public_html/img/nokia.png](https://www.w3schools.com/php/ajax.gif)?raw=true)
+![Image](https://github.com/Alexanderh1988/EasyCopyPaste/blob/master/how.png?raw=true)
 
 -------
 Codigo para traspasar rapidamente grandes textos a traves de un simple enlace, no es necesario utilizar el correo personal.
