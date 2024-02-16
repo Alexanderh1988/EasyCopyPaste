@@ -2,7 +2,7 @@
 Codigo para traspasar rapidamente grandes textos a traves de un simple enlace, no es necesario utilizar el correo personal.
 Usa html, css, php, js.
 
-![Image]([https://github.com/Alexanderh1988/EasyCopyPaste/blob/master/how.png](https://hstech.cl/assets/img/logohstech.png)?raw=true)
+![Image]([https://hstech.cl/assets/img/logohstech.png?raw=true)
 
 hstech devs
 hstech.cl
