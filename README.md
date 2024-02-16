@@ -21,7 +21,7 @@ Classic web pages, (which do not use AJAX) must reload the entire page if the co
 
 Examples of applications using AJAX: Google Maps, Gmail, Youtube, and Facebook tabs.
 
-How AJAX Works
-AJAX
+How AJAX Works 
+
 ![Image](https://github.com/Alexanderh1988/EasyCopyPaste/blob/master/how.png?raw=true)
 
