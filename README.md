@@ -1,3 +1,13 @@
+
+Codigo para traspasar rapidamente grandes textos a traves de un simple enlace, no es necesario utilizar el correo personal.
+Usa html, css, php, js.
+
+![Image](https://hstech.cl/assets/img/logohstech.png?raw=true)
+
+hstech devs
+hstech.cl
+-------
+
 AJAX is about updating parts of a web page, without reloading the whole page.
 
 What is AJAX?
@@ -11,13 +21,7 @@ Classic web pages, (which do not use AJAX) must reload the entire page if the co
 
 Examples of applications using AJAX: Google Maps, Gmail, Youtube, and Facebook tabs.
 
-How AJAX Works
-AJAX
-![Image]([../blob/master/public_html/img/nokia.png](https://www.w3schools.com/php/ajax.gif)?raw=true)
+How AJAX Works 
 
--------
-Codigo para traspasar rapidamente grandes textos a traves de un simple enlace, no es necesario utilizar el correo personal.
-Usa html, css, php, js.
+![Image](https://github.com/Alexanderh1988/EasyCopyPaste/blob/master/how.png?raw=true)
 
-hstech devs
-hstech.cl
