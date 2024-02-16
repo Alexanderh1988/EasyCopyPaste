@@ -25,7 +25,34 @@ textarea {
 
 <script>
 
-    const textArea = document.getElementById('textArea');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to fetch data from the database via AJAX
+        function fetchData() {
+            var xmlhttp = new XMLHttpRequest();
+
+            // Define a callback function to handle the response
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+                    // Request successful, update textarea with received data
+                    document.getElementById('textArea').value = xmlhttp.responseText;
+                } else {
+                    // Request failed
+                    console.error('Error: ' + xmlhttp.status);
+                }
+            };
+
+            var url = "getText.php"; // URL to your PHP script
+
+            // Configure the request
+            xmlhttp.open("GET", url, true);
+
+            // Send the request
+            xmlhttp.send();
+        }
+
+        // Call fetchData function when the page loads
+        fetchData();
+    });
 
     // Load saved text if available
     textArea.value = localStorage.getItem('textArea') || '';
@@ -38,15 +65,10 @@ textarea {
 
     // Function to save text to database via AJAX
     function saveTextToDatabase(text) {
-       /// const xhr = new XMLHttpRequest();
-       // xhr.open('POST', 'saveText.php', true);
-       // xhr.setRequestHeader('Content-type', 'application//x-www-form-urlencoded');
-       //  xhr.send('text=' + encodeURIComponent(text));
-		
-		// console.log(encodeURIComponent(text));
-
  
-var xmlhttp = new XMLHttpRequest();
+        const textArea = document.getElementById('textArea');
+
+        var xmlhttp = new XMLHttpRequest();
 
     // Define a callback function to handle the response
         xmlhttp.onreadystatechange = function() {
