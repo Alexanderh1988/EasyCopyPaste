@@ -3,7 +3,9 @@ Codigo para traspasar rapidamente grandes textos a traves de un simple enlace, n
 Usa html, css, php, js.
 
 ![Image](https://hstech.cl/assets/img/logohstech.png?raw=true)
+
 Sample
+
 ![Image](https://github.com/Alexanderh1988/EasyCopyPaste/blob/master/sample.png?raw=true)
 
 hstech devs
