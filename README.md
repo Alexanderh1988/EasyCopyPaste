@@ -1,4 +1,4 @@
-![image](https://github.com/Alexanderh1988/EasyCopyPaste/assets/28324045/a52f1c3e-1bf7-42ee-9dc9-b6696f2690fa)AJAX is about updating parts of a web page, without reloading the whole page.
+AJAX is about updating parts of a web page, without reloading the whole page.
 
 What is AJAX?
 AJAX = Asynchronous JavaScript and XML.
