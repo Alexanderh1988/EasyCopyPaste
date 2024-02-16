@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Save Text</title>
+
+<style type="text/css">
+ 
+textarea {
+ background: url(https://i.stack.imgur.com/ynxjD.png) repeat-y;
+ width: 600px;
+ height: 300px;
+ font: normal 14px verdana;
+ line-height: 25px;
+ padding: 2px 10px;
+ border: solid 1px #ddd;
+}
+ 
+</style>
+</head>
+<body>
+
+<textarea id="textArea"></textarea>
+
+<script>
+
+    const textArea = document.getElementById('textArea');
+
+    // Load saved text if available
+    textArea.value = localStorage.getItem('textArea') || '';
+
+    // Save text whenever there is a change
+    textArea.addEventListener('input', function() {
+        localStorage.setItem('savedText', textArea.value);
+        saveTextToDatabase(textArea.value); // Call function to save text to database
+    });
+
+    // Function to save text to database via AJAX
+    function saveTextToDatabase(text) {
+       /// const xhr = new XMLHttpRequest();
+       // xhr.open('POST', 'saveText.php', true);
+       // xhr.setRequestHeader('Content-type', 'application//x-www-form-urlencoded');
+       //  xhr.send('text=' + encodeURIComponent(text));
+		
+		// console.log(encodeURIComponent(text));
+
+ 
+var xmlhttp = new XMLHttpRequest();
+
+    // Define a callback function to handle the response
+        xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+                // Request successful, handle response
+                console.log(xmlhttp.responseText);
+            } else {
+                // Request failed
+                console.error('Error: ' + xmlhttp.status);
+                    }
+    };
+
+     var url = "saveText.php";
+
+// Define the data to be sent
+var data = "text="+text; // Replace with your actual data
+
+// Configure the request
+    // Continue with the request
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+// Send the request with the data
+xmlhttp.send(data);
+    }
+		
+</script>
+
+</body>
+</html>
