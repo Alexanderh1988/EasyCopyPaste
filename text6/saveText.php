@@ -19,7 +19,7 @@ $text= htmlspecialchars($text);
 
 
 // Prepare and execute SQL insert statement
- $stmt = $db->prepare("UPDATE saved_text SET text=('$text') WHERE id=1");
+ $stmt = $db->prepare("UPDATE saved_text SET text=('$text') WHERE id=6");
 //$stmt->bind_param("s", $text);
 
 if ($stmt->execute()) {

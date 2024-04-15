@@ -6,7 +6,7 @@
 $db = mysqli_connect('localhost','chs44206_hstech','k5m5[1vP^~ZD','chs44206_dbhstech');
  
 
-$stmt = $db->prepare("SELECT text FROM saved_text WHERE id=1");
+$stmt = $db->prepare("SELECT text FROM saved_text WHERE id=5");
 
 // Execute the prepared statement
 $stmt->execute();

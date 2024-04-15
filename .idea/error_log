@@ -1,0 +1,5 @@
+[22-Feb-2024 23:15:23 America/Santiago] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/chs44206/public_html/text/getText.php on line 36
+[22-Feb-2024 23:15:30 America/Santiago] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/chs44206/public_html/text/getText.php on line 36
+[22-Feb-2024 23:16:35 America/Santiago] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/chs44206/public_html/text/getText.php on line 36
+[22-Feb-2024 23:17:29 America/Santiago] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/chs44206/public_html/text/getText.php on line 37
+[22-Feb-2024 23:20:32 America/Santiago] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/chs44206/public_html/text/getText.php on line 37
