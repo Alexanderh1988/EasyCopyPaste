@@ -17,9 +17,11 @@ if(isset($_POST['text'])){
 $text = (String)$_POST['text'];
 $text= htmlspecialchars($text);
 
+$id= $_GET['id'];
+
 
 // Prepare and execute SQL insert statement
- $stmt = $db->prepare("UPDATE saved_text SET text=('$text') WHERE id=1");
+ $stmt = $db->prepare("UPDATE saved_text SET text=('$text') WHERE id=".$id);
 //$stmt->bind_param("s", $text);
 
 if ($stmt->execute()) {

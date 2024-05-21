@@ -41,21 +41,58 @@ textarea {
 <body>
 
 <div class="navbar">
-  <a href="https://hstech.cl/text/index.html">Text 1</a>
-  <a href="https://hstech.cl/text/text2/index.html">Text 2</a>
-  <a href="https://hstech.cl/text/text3/index.html">Text 3</a>
-  <a href="https://hstech.cl/text/text4/index.html">Text 4</a>
-  <a href="https://hstech.cl/text/text5/index.html">Text 5</a>
-    <a href="https://hstech.cl/text/text6/index.html">Text 6</a>
+  <a href="index.html?id=1">Text 1</a>
+  <a href="index.html?id=2">Text 2</a> 
+    <a href="index.html?id=3">Text 3</a> 
+    <a href="index.html?id=4">Text 4</a>   
+  <a href="index.html?id=5">Text 5</a>   
+  <a href="index.html?id=6">Text 6</a>    
 </div>
 
 <textarea id="textArea"></textarea>
 
 <script>
 
+	const currentUrl = window.location.href; // https://example.com/?name=JohnDoe&age=25
+	const url = new URL(currentUrl);
+	const params = new URLSearchParams(url.search);
+
+	const id = params.get('id'); //   	
+
+
     document.addEventListener('DOMContentLoaded', function() {
+ 
+	
+		
+	function getLabels(){
+	    
+	        var xmlhttp = new XMLHttpRequest();
+
+            // Define a callback function to handle the response
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+                    // Request successful, update textarea with received data
+                   // document.getElementById('textArea').value = xmlhttp.responseText;
+                } else {
+                    // Request failed
+                    console.error('Error: ' + xmlhttp.status);
+                }
+            };
+			
+			   var url = "getLabels.php";
+
+            // Configure the request
+            xmlhttp.open("GET", url, true);
+
+            // Send the request
+            xmlhttp.send();
+			
+	}
+
+
         // Function to fetch data from the database via AJAX
         function fetchData() {
+		
             var xmlhttp = new XMLHttpRequest();
 
             // Define a callback function to handle the response
@@ -68,7 +105,9 @@ textarea {
                     console.error('Error: ' + xmlhttp.status);
                 }
             };
-            var url = "getText.php"; // URL to your PHP script
+            var url = "getText.php?id="+id; // URL to your PHP script
+			
+			console.log(url);
 
             // Configure the request
             xmlhttp.open("GET", url, true);
@@ -76,55 +115,49 @@ textarea {
             // Send the request
             xmlhttp.send();
         }
+		
+		getLabels();
 
         // Call fetchData function when the page loads
         fetchData();
     });
-
-    // Load saved text if available
-    //textArea.value = localStorage.getItem('textArea') || '';
-    // Save text whenever there is a change
-
+ 
     textArea.addEventListener('input', function() {
 	
 	//setTimeout(function(){
 		localStorage.setItem('savedText', textArea.value);
         saveTextToDatabase(textArea.value); // Call function to save text to database
-//}, 200);       
+	//}, 200);       
     });
 
     // Function to save text to database via AJAX
-    function saveTextToDatabase(text) {
- 
-        const textArea = document.getElementById('textArea');
-
-        var xmlhttp = new XMLHttpRequest();
+function saveTextToDatabase(text) {
+    var xmlhttp = new XMLHttpRequest();
 
     // Define a callback function to handle the response
-        xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            if (xmlhttp.status == 200) {
                 // Request successful, handle response
                 console.log(xmlhttp.responseText);
             } else {
                 // Request failed
                 console.error('Error: ' + xmlhttp.status);
-                    }
+            }
+        }
     };
 
-     var url = "saveText.php";
-
-    // Define the data to be sent
-    var data = "text="+text; // Replace with your actual data
+    var url = "saveText.php?id=" + id;
+    var data = "text=" + encodeURIComponent(text); // Properly encode the text data
 
     // Configure the request
-    // Continue with the request
     xmlhttp.open("POST", url, true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-   // Send the request with the data
-   xmlhttp.send(data);
- 
-  }
+    // Send the request with the data
+    xmlhttp.send(data);
+}
+
 		
 </script>
 
