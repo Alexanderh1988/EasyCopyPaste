@@ -6,8 +6,7 @@
 <title>Auto Save Text</title>
 
 <style type="text/css">
- 
- .navbar {
+  .navbar {
   background-color: #333;
   overflow: hidden;
 }
@@ -27,7 +26,8 @@
 }
 
 textarea {
- background: url(https://i.stack.imgur.com/ynxjD.png) repeat-y;
+/*background: url('https://i.stack.imgur.com/ynxjD.png') repeat-y;*/
+  background: url('row.png') repeat-y;
  width: 900px;
  height: 700px;
  font: normal 14px verdana;
@@ -41,12 +41,13 @@ textarea {
 <body>
 
 <div class="navbar">
-  <a href="index.html?id=1">Text 1</a>
-  <a href="index.html?id=2">Text 2</a> 
-    <a href="index.html?id=3">Text 3</a> 
-    <a href="index.html?id=4">Text 4</a>   
-  <a href="index.html?id=5">Text 5</a>   
-  <a href="index.html?id=6">Text 6</a>    
+  <a id="label1" href="index.html?id=1">Text 1</a>
+  <a id="label2" href="index.html?id=2">Text 2</a> 
+    <a id="label3" href="index.html?id=3">Text 3</a> 
+    <a id="label4" href="index.html?id=4">Text 4</a>   
+  <a id="label5" href="index.html?id=5">Text 5</a>   
+  <a id="label6" href="index.html?id=6">Text 6</a>    
+    <a id="label7" href="index.html?id=7">Text 7</a>    
 </div>
 
 <textarea id="textArea"></textarea>
@@ -57,15 +58,14 @@ textarea {
 	const url = new URL(currentUrl);
 	const params = new URLSearchParams(url.search);
 
-	const id = params.get('id'); //   	
-
+	const id = params.get('id'); // 
+	var labels = "";  	
 
     document.addEventListener('DOMContentLoaded', function() {
- 
-	
+ 	
 		
 	function getLabels(){
-	    
+	     		   
 	        var xmlhttp = new XMLHttpRequest();
 
             // Define a callback function to handle the response
@@ -73,24 +73,41 @@ textarea {
                 if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
                     // Request successful, update textarea with received data
                    // document.getElementById('textArea').value = xmlhttp.responseText;
-                } else {
+				   
+				   labels =  xmlhttp.responseText;
+			 
+ 
+			document.getElementById('label1').textContent  = JSON.parse(labels)[0];   console.log(JSON.parse(labels)[0]);
+
+			document.getElementById('label2').textContent  = JSON.parse(labels)[1];  console.log(JSON.parse(labels)[1]);
+
+			document.getElementById('label3').textContent  = JSON.parse(labels)[2]; console.log(JSON.parse(labels)[2]);
+
+			document.getElementById('label4').textContent  = JSON.parse(labels)[3]; console.log(JSON.parse(labels)[3]);
+
+			document.getElementById('label5').textContent  = JSON.parse(labels)[4];  console.log(JSON.parse(labels)[4]);
+			document.getElementById('label6').textContent  = JSON.parse(labels)[5];  console.log(JSON.parse(labels)[5]);
+			document.getElementById('label7').textContent  = JSON.parse(labels)[6];   console.log(JSON.parse(labels)[6]);
+ 
+
+				
+     		                } else {
                     // Request failed
-                    console.error('Error: ' + xmlhttp.status);
+                   // console.error('Error: ' + xmlhttp.status);
                 }
             };
 			
-			   var url = "getLabels.php";
+			var url = "getLabels.php";
 
             // Configure the request
             xmlhttp.open("GET", url, true);
 
             // Send the request
             xmlhttp.send();
-			
-	}
+			}
+  
 
-
-        // Function to fetch data from the database via AJAX
+	  // Function to fetch data from the database via AJAX
         function fetchData() {
 		
             var xmlhttp = new XMLHttpRequest();
@@ -101,12 +118,18 @@ textarea {
                     // Request successful, update textarea with received data
                     document.getElementById('textArea').value = xmlhttp.responseText;
                 } else {
-                    // Request failed
-                    console.error('Error: ' + xmlhttp.status);
+                    // Request failed   + xmlhttp.status
+                  //  console.error('Error: '   );
                 }
             };
-            var url = "getText.php?id="+id; // URL to your PHP script
 			
+		if (id == null) {
+        var url = "getText.php?id=1";
+			}  
+		else {
+		var url = "getText.php?id=" + id; // URL to your PHP script
+		}
+						
 			console.log(url);
 
             // Configure the request
@@ -115,9 +138,11 @@ textarea {
             // Send the request
             xmlhttp.send();
         }
-		
+		 
 		getLabels();
-
+ 
+		//console.log(JSON.parse(labels));
+	 
         // Call fetchData function when the page loads
         fetchData();
     });
@@ -131,7 +156,7 @@ textarea {
     });
 
     // Function to save text to database via AJAX
-function saveTextToDatabase(text) {
+	function saveTextToDatabase(text) {
     var xmlhttp = new XMLHttpRequest();
 
     // Define a callback function to handle the response

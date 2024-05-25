@@ -19,8 +19,9 @@ $stmt->bind_result($text);
 $data = array();
 while ($stmt->fetch()) {
  // Store the fetched text into the $data array
- //   $data[] = str_replace("<br>", "", $text);
- $data[] = $text;
+ //   $data[] = str_replace("<br>", "", $text); 
+  $data[] =   htmlspecialchars_decode($text, ENT_QUOTES);
+ //$data[] = $text;
 }
  
 

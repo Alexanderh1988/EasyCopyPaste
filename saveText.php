@@ -15,11 +15,13 @@ if ($db->connect_error) {
 if(isset($_POST['text'])){
 
 $text = (String)$_POST['text'];
-$text= htmlspecialchars($text);
+
+//$text= htmlspecialchars($text);
 
 $id= $_GET['id'];
 
-
+    $text = str_replace("\\", "\\\\", $_POST['text']);
+	
 // Prepare and execute SQL insert statement
  $stmt = $db->prepare("UPDATE saved_text SET text=('$text') WHERE id=".$id);
 //$stmt->bind_param("s", $text);

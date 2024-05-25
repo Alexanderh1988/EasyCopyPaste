@@ -5,6 +5,8 @@
 //remoto
 $db = mysqli_connect('localhost', 'chs44206_hstech', 'k5m5[1vP^~ZD', 'chs44206_dbhstech');
 
+ //$id=isset( $_GET['id'])? $_GET['id']:"1";
+
 // Check connection
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
